@@ -1,0 +1,32 @@
+#Edited line 141 from Menche et al Localization.py
+
+#old code has been hashed out (lines 14/18)
+def get_lcc_size(G,seed_nodes):
+    """
+    return the lcc size
+    """
+
+    # getting subgraph that only consists of the black_nodes
+    g = nx.subgraph(G,seed_nodes)
+
+    if g.number_of_nodes() != 0:
+        # get all components 
+        #components = nx.connected_components(g)
+        largest_cc=max(nx.connected_components(g),key=len)
+        
+        
+        #return len(components[0])
+        return len(largest_cc)
+
+    else:
+        return 0
+
+
+
+
+
+#Run in command line: ./localization.py -n newinteractome.txt -g Adipocyte.txt -o AdipocyteLocalization.txt
+    
+    
+
+
